@@ -11,7 +11,7 @@ RSpec.describe I18n::Transformers do
       I18n.enforce_available_locales = false
       I18n.backend = I18n::Backend::Simple.new
       I18n.backend.store_translations :en, key: 'val', key_md: '**Bold**'
-      I18n.reset_transformers
+      I18n.transformers.reset
 
       example.call
 

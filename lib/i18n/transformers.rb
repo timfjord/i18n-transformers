@@ -10,10 +10,6 @@ require 'i18n/transformers/collection/markdown'
 
 module I18n
   module Transformers
-    def reset_transformers
-      @transformers = Collection.new
-    end
-
     def transformers
       @transformers ||= Collection.new
     end

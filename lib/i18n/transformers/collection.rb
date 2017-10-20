@@ -20,7 +20,6 @@ module I18n
         name, options = nil, name if name.is_a?(Hash)
         position = options.extract! :before, :after, :at
 
-
         transformer = if name.respond_to?(:transform)
           name
         else
@@ -51,6 +50,11 @@ module I18n
         end
 
         transformer
+      end
+
+      def reset
+        @collection = []
+        self
       end
 
       private

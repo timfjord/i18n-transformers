@@ -105,4 +105,14 @@ RSpec.describe I18n::Transformers::Collection do
       expect(collection.find(transformer1, index: true)).to eql 1
     end
   end
+
+  describe "#reset" do
+    it "should cleanup collection" do
+      collection.register transformer1
+      expect(collection.all).to eql [transformer1]
+
+      collection.reset
+      expect(collection.all).to eql []
+    end
+  end
 end
