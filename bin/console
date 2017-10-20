@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'i18n/transformers'
+
+require 'pry'
+
+Pry.start
