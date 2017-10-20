@@ -43,11 +43,11 @@ RSpec.describe I18n::Transformers::Collection::Markdown do
         string_with_html_safe
       end
     end
-    let(:markdown_with_custom_suffix) do
-      I18n::Transformers::Collection::Markdown.new suffix: /_markdown$/
+    let(:markdown_with_custom_pattern) do
+      I18n::Transformers::Collection::Markdown.new key_pattern: /_markdown$/
     end
 
-    it "should use passed block if suffix has matched" do
+    it "should use passed block if pattern has matched" do
       expect(custom_markdown.transform('key_md', 'v')).to eql 'custom markdown for key_md v'
       expect(custom_markdown.transform('key.md', 'v')).to eql 'custom markdown for key.md v'
     end
@@ -65,9 +65,9 @@ RSpec.describe I18n::Transformers::Collection::Markdown do
       expect(kramdown_markdown.transform('key_md', '**bold**')).to eql "<p><strong>bold</strong></p>\n"
     end
 
-    it "should allow to specify different suffix" do
-      expect(markdown_with_custom_suffix.transform('key_md', '**bold**')).to eql '**bold**'
-      expect(markdown_with_custom_suffix.transform('key_markdown', '**bold**')).to eql "<p><strong>bold</strong></p>\n"
+    it "should allow to specify different pattern" do
+      expect(markdown_with_custom_pattern.transform('key_md', '**bold**')).to eql '**bold**'
+      expect(markdown_with_custom_pattern.transform('key_markdown', '**bold**')).to eql "<p><strong>bold</strong></p>\n"
     end
   end
 end

@@ -2,14 +2,14 @@ module I18n
   module Transformers
     class Collection
       class Markdown < Base
-        def initialize(suffix: /(\b|_|\.)md$/, adapter: nil, **options, &block)
+        def initialize(key_pattern: /(\b|_|\.)md$/, adapter: nil, **options, &block)
           super options, &block
-          self.suffix = suffix
+          self.key_pattern = key_pattern
           self.adapter = adapter
         end
 
-        def suffix=(s)
-          @suffix = s.is_a?(Regexp) ? s : Regexp.quote(s.to_s)
+        def key_pattern=(pattern)
+          @key_pattern = pattern.is_a?(Regexp) ? pattern : Regexp.quote(pattern.to_s)
         end
 
         def adapter=(adptr)
@@ -20,7 +20,7 @@ module I18n
         end
 
         def transform(key, value)
-          return value unless @suffix =~ key.to_s
+          return value unless @key_pattern =~ key.to_s
 
           res = @block ? @block.call(key, value) : markdown_to_html(value)
           res.respond_to?(:html_safe) ? res.html_safe : res
