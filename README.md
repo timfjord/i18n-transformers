@@ -1,5 +1,7 @@
 # I18n::Transformers
 
+[![Build Status](https://travis-ci.org/timsly/i18n-transformers.svg?branch=master)](https://travis-ci.org/timsly/i18n-transformers)
+
 Transformers for `I18n` ruby library
 
 `I18n::Transformers` is a `I18n` ruby library plugin that allows transform translations.
