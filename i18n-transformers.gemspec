@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Tim Masliuchenko']
   spec.email         = ['insside@gmail.com']
 
-  spec.summary       = 'I18n keys transformers'
-  spec.description   = 'I18n keys transformers'
-  spec.homepage      = ''
+  spec.summary       = 'Transformers for I18n ruby library'
+  spec.description   = 'Transformers for I18n ruby library'
+  spec.homepage      = 'https://github.com/timsly/i18n-transformers'
   spec.license       = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -30,11 +30,12 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
+  spec.add_dependency 'i18n'
+  spec.add_dependency 'activesupport'
+
   spec.add_development_dependency 'bundler', '~> 1.15'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
-  spec.add_development_dependency 'i18n'
-  spec.add_development_dependency 'activesupport'
   spec.add_development_dependency 'redcarpet'
   spec.add_development_dependency 'kramdown'
 end
