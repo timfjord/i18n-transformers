@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module I18n
   module Transformers
     class Collection
@@ -25,10 +27,10 @@ module I18n
         else
           klass = name.is_a?(Symbol) ? collection_class_for(name) : name
           klass = I18n::Transformers::Collection::Generic if !klass || name.is_a?(String)
-          klass.new(options.merge(name: name), &block)
+          klass.new(**options.merge(name: name), &block)
         end
 
-        insert(transformer, position)
+        insert(transformer, **position)
       end
 
       def insert(transformer, at: nil, before: nil, after: nil)

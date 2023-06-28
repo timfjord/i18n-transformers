@@ -6,13 +6,13 @@ RSpec.describe I18n::Transformers::Collection::Markdown do
 
   describe "#available_adapters" do
     it "should return list of available markdown adapters" do
-      expect(markdown.available_adapters).to eql %w(redcarpet kramdown)
+      expect(markdown.available_adapters).to eql %w(kramdown redcarpet)
     end
   end
 
   describe "#adapter" do
     it "should detect adapter based on its availability" do
-      expect(markdown.adapter).to eql 'redcarpet'
+      expect(markdown.adapter).to eql 'kramdown'
     end
 
     it "should calculate adapter only once" do

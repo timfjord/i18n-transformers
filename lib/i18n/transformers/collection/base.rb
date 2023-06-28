@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module I18n
   module Transformers
     class Collection
@@ -11,7 +13,7 @@ module I18n
           @name ||= self.class.to_s.demodulize.underscore
         end
 
-        def transform(key, value)
+        def transform(_key, _value)
           raise NonImplementedError
         end
       end

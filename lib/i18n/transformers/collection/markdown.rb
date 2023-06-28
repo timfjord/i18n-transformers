@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 module I18n
   module Transformers
     class Collection
       class Markdown < Base
         def initialize(key_pattern: /(\b|_|\.)md$/, adapter: nil, **options, &block)
-          super options, &block
+          super(**options, &block)
           self.key_pattern = key_pattern
           self.adapter = adapter
         end
